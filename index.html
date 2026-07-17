@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لیست کارها</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="title">لیست کارها</h1>
+      <p class="subtitle">کارهایت را سازمان‌دهی کن</p>
+    </header>
+
+    <form class="add-form" id="addForm">
+      <div class="form-row">
+        <input type="text" id="taskInput" class="input" placeholder="کار جدید اضافه کن..." autocomplete="off" required>
+        <button type="submit" class="btn btn-add">افزودن</button>
+      </div>
+      <div class="form-row form-options">
+        <select id="categoryInput" class="select">
+          <option value="شخصی">شخصی</option>
+          <option value="کار">کار</option>
+          <option value="تحصیلی">تحصیلی</option>
+          <option value="خرید">خرید</option>
+          <option value="سایر">سایر</option>
+        </select>
+        <select id="priorityInput" class="select">
+          <option value="متوسط">متوسط</option>
+          <option value="زیاد">زیاد</option>
+          <option value="کم">کم</option>
+        </select>
+        <div class="datepicker-wrapper">
+          <input type="text" id="dueDateInput" class="input input-date" placeholder="تاریخ سررسید" readonly>
+          <div class="datepicker" id="datepicker"></div>
+        </div>
+      </div>
+    </form>
+
+    <div class="toolbar">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">همه</button>
+        <button class="filter-btn" data-filter="active">فعال</button>
+        <button class="filter-btn" data-filter="completed">انجام شده</button>
+      </div>
+      <input type="text" id="searchInput" class="input input-search" placeholder="جستجو...">
+    </div>
+
+    <div class="task-stats" id="taskStats"></div>
+
+    <ul class="task-list" id="taskList"></ul>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">✦</div>
+      <p>هنوز کاری اضافه نکردی</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal">
+      <div class="modal-icon">!</div>
+      <p class="modal-text">آیا از حذف این کار مطمئن هستی؟</p>
+      <div class="modal-actions">
+        <button class="btn modal-btn modal-btn-cancel" id="cancelDelete">لغو</button>
+        <button class="btn modal-btn modal-btn-confirm" id="confirmDelete">حذف</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
